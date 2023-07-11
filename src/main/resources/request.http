@@ -1,0 +1,82 @@
+POST localhost:8080/product HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJTZWxsZXIifQ.a4E4z2drokv7QlZbH_3_cFJtSrTaA8vbnc3SyyDO9mA
+X-Request-Id: 1
+Content-Type: application/json
+
+{
+  "productName" : "best earphones",
+  "category" : "Electronics",
+  "price" : 50,
+  "description" : "test"
+}
+
+###
+GET localhost:8080/products?minPrice=100&maxPrice=1000&category=Electronics&seller=1 HTTP/1.1
+X-Request-Id: 2
+###
+GET localhost:8080/products HTTP/1.1
+X-Request-Id: 3
+###
+PUT localhost:8080/product
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJTZWxsZXIifQ.a4E4z2drokv7QlZbH_3_cFJtSrTaA8vbnc3SyyDO9mA
+X-Request-Id: 4
+Content-Type: application/json
+
+{
+  "id": "4",
+  "productName" : "best earphones",
+  "category" : "Electronics",
+  "price" : 500,
+  "description" : "test"
+}
+###
+PUT localhost:8080/addToCart/4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwidXNlclR5cGUiOiJCdXllciJ9.URmiS8BpRZp7DnPXeXRKP2jVAxvWlmKo3zQ2-BOjcbU
+X-Request-Id: 5
+
+###
+PUT localhost:8080/removeFromCart/4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwidXNlclR5cGUiOiJCdXllciJ9.URmiS8BpRZp7DnPXeXRKP2jVAxvWlmKo3zQ2-BOjcbU
+X-Request-Id: 6
+
+###
+PUT localhost:8080/removeAllFromCart/4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwidXNlclR5cGUiOiJCdXllciJ9.URmiS8BpRZp7DnPXeXRKP2jVAxvWlmKo3zQ2-BOjcbU
+X-Request-Id: 7
+
+###
+GET localhost:8080/getOrder/1 HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwidXNlclR5cGUiOiJCdXllciJ9.URmiS8BpRZp7DnPXeXRKP2jVAxvWlmKo3zQ2-BOjcbU
+X-Request-Id: 8
+
+###
+GET localhost:8080/docs HTTP/1.1
+X-Request-Id: 9
+###
+POST localhost:8080/signUp
+X-Request-Id: 10
+Content-Type: application/json
+
+
+{
+  "username": "Dina",
+  "login": "dina@mail.ru",
+  "password": "qwerty007",
+  "userType": "Buyer"
+}
+
+###
+POST localhost:8080/signIn
+X-Request-Id: 11
+Content-Type: application/json
+
+
+{
+  "login": "dina@mail.ru",
+  "password": "qwerty007"
+}
+
+###
+GET localhost:8080/getOrderItems/1 HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwidXNlclR5cGUiOiJCdXllciJ9.URmiS8BpRZp7DnPXeXRKP2jVAxvWlmKo3zQ2-BOjcbU
+X-Request-Id: 12
